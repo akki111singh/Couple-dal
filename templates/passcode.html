@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{url_for('static', filename='reset.css')}}">
+</head>
+<body>
+
+<h2>Verification Page</h2>
+
+
+<form action="/pverify/{{val}}" method="POST">
+  
+  <div class="container">
+    <label for="ecode"><b>Verification Code</b></label>
+    <div>
+    <input type="text" placeholder="Enter verification code" id="f" name="pcode" required>
+    </div>
+    <div>
+    <input type="password" placeholder="Enter new password" id="f1" name="psw" required>
+    </div>
+    <div>
+    <input type="password" placeholder="Confirm password" id="f2" name="cpsw" required>
+    </div>
+    <button type="submit">Verify</button>
+    </span>
+    
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+  </div>
+</form>
+
+
+</body>
+<script>
+    {% with messages = get_flashed_messages() %}
+           {% if messages %}
+                 {% for message in messages %}
+                 alert("{{message}}")
+                 {% endfor %}
+           {% endif %}
+        {% endwith %}
+  </script>
+
+</html>

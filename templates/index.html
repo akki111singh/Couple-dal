@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{url_for('static', filename='reset.css')}}">
+<style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+  
+  /* The Modal (background) */
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  </style>
+
+
+
+</head>
+<body style="margin: 0">
+<img src="{{url_for('static', filename='couple.jpg')}}" style="position: fixed;opacity: 0.8;height:690px;width:100%;"> 
+
+
+
+<div style="position: absolute; width: 100%;height: 100%;overflow-x:hidden;top: 0;">
+<h2>Login</h2>
+
+<div>
+<form action = "/login/" method="POST" style="border: none;width: 50%;">
+  
+  <div class="container">
+    <label for="uname" ><b>Username</b></label>
+    <div>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+    </div>
+    <label for="psw"><b>Password</b></label>
+    <div>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    </div>
+    <span display="inline-block" float="left">
+    <button type="submit">Login</button>
+    </span>
+<a href="/signup"><button style="margin-left: 15px;">Sign Up</button></a>
+    
+  </div>
+
+</form>
+<button id="myBtn" style="margin-left:15px" class="w3-button w3-bar-item">
+  <a href="/forgot_password/" style="color:white">Forgot Password?</a>
+  </button>
+</div>
+<div id="myModal" class="modal">
+<div class="modal-content">
+  <span class="close">&times;</span>  
+<form action = "/forgot_password/" method="POST" style="border: none;width: 50%;">
+
+  <div class="container">
+    <label for="uname" ><b>Enter email</b></label>
+    <br>
+    <div>
+    <input type="text" placeholder="Enter email" name="email" required>
+    </div>
+    <br>
+    <span display="inline-block" float="left">
+    <button type="submit">Done</button>
+    </span>    
+  </div>
+
+</form>
+</div>
+</div>
+
+
+
+<font face="Bodoni" color = "white" size="10" style="margin: 300px;"><i>"Jab pyaar kiya toh darna kya"</i></font>
+</div>
+</body>
+<script>
+      {% with messages = get_flashed_messages() %}
+           {% if messages %}
+                 {% for message in messages %}
+                 alert("{{message}}")
+                 {% endfor %}
+           {% endif %}
+        {% endwith %}
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on  (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+</script>
+</html>

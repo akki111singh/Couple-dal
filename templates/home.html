@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<body>
+  <head>
+      <style>
+          body {font-family: Arial, Helvetica, sans-serif;}
+          
+          /* The Modal (background) */
+          .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+          }
+          
+          /* Modal Content */
+          .modal-content {
+              background-color: #fefefe;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 80%;
+          }
+          
+          /* The Close Button */
+          .close {
+              color: #aaaaaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+          }
+          
+          .close:hover,
+          .close:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+          }
+          </style>
+  </head>
+
+<!-- Navigation -->
+<nav class="w3-bar w3-black">
+  <a href="/home/" class="w3-button w3-bar-item">Home</a>
+  <a href="/others/" class="w3-button w3-bar-item">Other couples</a>
+  <a href="/mood/" class="w3-button w3-bar-item">Mood</a>
+  <a href="/bajrang_dal/" class="w3-button w3-bar-item">Bajrang Dal</a>
+  <a href="/breakup/" class="w3-button w3-bar-item">Break Up</a>
+  <a href="/search_partner" class="w3-button w3-bar-item">Singles</a>
+  <button id="myBtn" class="w3-button w3-bar-item">Edit Bio</button>
+  <a href="/logout/" style="float: right" class="w3-button w3-bar-item">Logout</a>
+</nav>
+
+
+
+<!-- Band Description -->
+  <h2 style="text-align:center">{{text}} </h2>
+  <h1 style="margin:0;padding:0%;border:0px;position:relative;left:1%">About me</h1>
+  <hr style="margin:0;height:5px;background-color:black">
+  <p>
+    {% if bio %}
+    <i><h2>"{{bio}}"</h2></i>
+    {%else%}
+    Empty bio
+    {%endif%}      
+  </p>
+
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>  
+      <form action = "/edit_bio/" method="POST" style="border: none;width: 50%;">
+  
+        <div class="container">
+          <label for="uname" ><b>Enter Bio</b></label>
+          <br>
+          <div>
+          <textarea placeholder="Enter Bio" name="bio" required></textarea>
+          </div>
+          <br>
+          <span display="inline-block" float="left">
+          <button type="submit">Done</button>
+          </span>    
+        </div>
+      
+      </form>
+    </div>
+  
+  </div>
+
+<!-- Footer -->
+<footer style="position:fixed !important;bottom:0 !important;width:100% !important;padding-bottom:0px !important;" class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+  <img src="{{url_for('static', filename='outline.jpg')}}"  height="100px"/>
+  <p class="w3-medium">
+  Powered by <a href="https://www.spankbang.com/" target="_blank">Lust</a>
+  </p>
+</footer>
+
+
+
+</body>
+<script>
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
+           {% for message in messages %}
+           alert("{{message}}")
+           {% endfor %}
+     {% endif %}
+  {% endwith %}
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+modal.style.display = "block";
+}
+
+// When the user clicks on  (x), close the modal
+span.onclick = function() {
+modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+  modal.style.display = "none";
+}
+}
+
+</script>
+</html>
+

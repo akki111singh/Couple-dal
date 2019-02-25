@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{url_for('static', filename='reset.css')}}">
+</head>
+<body>
+
+<h2>Verification Page</h2>
+
+
+<form action="/verify/{{val}}" method="POST">
+  
+  <div class="container">
+    <label for="ecode"><b>Verification Code</b></label>
+    <div>
+    <input type="text" id="f1" name="ecode1" required>
+    </div>
+    <div>
+      <input type="text" id="f2" name="ecode2" required>
+    </div>
+    <button type="submit">Verify</button>
+    </span>
+    
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+  </div>
+</form>
+
+
+</body>
+<script>
+  document.getElementById('f1').setAttribute('placeholder','Enter verification code for {{u1}}')
+  document.getElementById('f2').setAttribute('placeholder','Enter verification code for {{u2}}')
+    {% with messages = get_flashed_messages() %}
+           {% if messages %}
+                 {% for message in messages %}
+                 alert("{{message}}")
+                 {% endfor %}
+           {% endif %}
+        {% endwith %}
+  </script>
+
+</html>

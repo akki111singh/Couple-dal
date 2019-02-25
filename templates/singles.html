@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="code.jquery.com/jquery-1.11.1.min.js"></script> 
+ <style>
+
+
+          body {
+            font-family: Arial, Helvetica, sans-serif;}
+
+
+
+          /* The Modal (background) */
+          .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+          }
+          
+          /* Modal Content */
+          .modal-content {
+              background-color: #fefefe;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 80%;
+          }
+          
+          /* The Close Button */
+          .close {
+              color: #aaaaaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+          }
+          
+          .close:hover,
+          .close:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+          }
+          </style>
+  </head>
+<body>
+<!-- Navigation -->
+<nav class="w3-bar w3-black">
+  <a href="/home/" class="w3-button w3-bar-item">Home</a>
+  <a href="/others/" class="w3-button w3-bar-item">Other couples</a>
+  <a href="/mood/" class="w3-button w3-bar-item">Mood</a>
+  <button id="myBtn" class="w3-button w3-bar-item">Edit Bio</button>
+  <a href="/logout/" style="float: right" class="w3-button w3-bar-item">Logout</a>
+</nav>
+
+<div class="container">
+    <h2>Singles</h2>
+    <table class="table table-striped">
+      <hr>
+      {% for key,value in other.iteritems() %}
+      <tr>
+        {% set x = value.split(",")%}
+        <td>
+          <a href = "/profile?user={{x[1]}}">{{x[0]}}</a>
+        </td>
+      </tr>
+      
+      {% endfor %}    
+    </table>
+  </div>
+  
+
+</body>
+<script>
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
+           {% for message in messages %}
+           alert("{{message}}")
+           {% endfor %}
+     {% endif %}
+  {% endwith %}
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+modal.style.display = "block";
+}
+
+// When the user clicks on  (x), close the modal
+span.onclick = function() {
+modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+  modal.style.display = "none";
+}
+}
+
+</script>
+</html>
+

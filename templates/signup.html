@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{url_for('static', filename='reset.css')}}">
+</head>
+<body style="margin:0;">
+<img src="{{url_for('static', filename='couple.jpg')}}" style="position: fixed;opacity: 0.8;height:690px;width:100%;"> 
+<div style="position: absolute; width: 100%;height: 100%;overflow-x:hidden;top: 0;">
+<h1 style="margin-left: 15px;">Sign Up</h1>
+
+<form action="/everify" method="POST" style="border: none;">
+  
+  <div class="container">
+  <div >
+  
+  <h2>Babu</h2>
+    <label for="uname1" style="color:white;"><b>Username</b></label>
+    <div>
+    <input type="text" placeholder="Enter Username" name="uname1" required>
+    </div>
+    <label for="fname1" style="color:white;"><b>First name</b></label>
+    <div>
+    <input type="text" placeholder="Enter First name" name="fname1" required>
+    </div>
+    <label for="lname1" style="color:white;"><b>Last name</b></label>
+    <div>
+    <input type="text" placeholder="Enter Last name" name="lname1" required>
+    </div>
+    <label for="age1" style="color:white;"><b>Age</b></label>
+    <div>
+    <input type="text" placeholder="Enter Age" name="age1" required>
+    </div>
+    <br>
+    <label for="gender1" style="color:white;"><b>Gender</b></label>
+    <div>
+    <input type="radio" name="gender1" value="male" checked> Male<br>
+    <input type="radio" name="gender1" value="female"> Female<br>
+    <input type="radio" name="gender1" value="other"> Other  
+    </div>
+    <br>
+    <label for="phone1" style="color:white;"><b>Mobile Number</b></label>
+    <div>
+    <input type="text" placeholder="Enter Mobile no." name="phone1" required>
+    </div>
+
+    <label for="email1" style="color:white;"><b>Email</b></label>
+    <div>
+    <input type="text" placeholder="Email" name="email1" required>
+    </div>
+
+
+    <label for="psw1" style="color:white;"><b>Password</b></label>
+    <div>
+    <input type="password" placeholder="Enter Password" name="psw1" required>
+    </div>
+
+    <label for="cpsw1" style="color:white;"><b>Confirm Password</b></label>
+    <div>
+    <input type="password" placeholder="Confirm Password" name="cpsw1" required>
+    </div>
+
+    </div>
+    
+    <hr>
+    <div >
+    <h2>Shona</h2>
+    <label for="uname2" style="color:white;"><b>Username</b></label>
+    <div>
+    <input type="text" placeholder="Enter Username" name="uname2" required>
+    </div>
+    <label for="fname2" style="color:white;"><b>First name</b></label>
+    <div>
+    <input type="text" placeholder="Enter First name" name="fname2" required>
+    </div>
+    <label for="lname2" style="color:white;"><b>Last name</b></label>
+    <div>
+    <input type="text" placeholder="Enter Last name" name="lname2" required>
+    </div>
+    <label for="age2" style="color:white;"><b>Age</b></label>
+    <div>
+    <input type="text" placeholder="Age" name="age2" required>
+    </div>
+    <br>
+    <label for="gender2" style="color:white;"><b>Gender</b></label>
+    <div>
+    <input type="radio" name="gender2" value="male" checked> Male<br>
+    <input type="radio" name="gender2" value="female"> Female<br>
+    <input type="radio" name="gender2" value="other"> Other  
+    </div>
+    <br>
+
+    <label for="phone2" style="color:white;"><b>Mobile Number</b></label>
+    <div>
+    <input type="text" placeholder="Enter Mobile no." name="phone2" required>
+    </div>
+
+
+    <label for="uname2" style="color:white;"><b>Email</b></label>
+    <div>
+    <input type="text" placeholder="Email" name="email2" required>
+    </div>
+
+    <label for="psw" style="color:white;"><b>Password</b></label>
+    <div>
+    <input type="password" placeholder="Enter Password" name="psw2" required>
+    </div>
+
+    <label for="psw2" style="color:white;"><b>Confirm Password</b></label>
+    <div>
+    <input type="password" placeholder="Confirm Password" name="cpsw2" required>
+    </div>
+
+    </div>
+    <span display="inline-block" float="left">
+    <button type="submit">Register</button>
+    </span>
+    </div>
+
+
+    <span display="inline-block" float="left" style="margin-left: 15px;">
+    <a href="/"><button>&lt--Back to login</button></a>
+    </span>
+    </div>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+  </div>
+</form>
+</div>
+</body>
+<script>
+  {% with messages = get_flashed_messages() %}
+         {% if messages %}
+               {% for message in messages %}
+               alert("{{message}}")
+               {% endfor %}
+         {% endif %}
+      {% endwith %}
+</script>
+</html>

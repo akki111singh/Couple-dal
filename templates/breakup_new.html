@@ -1,0 +1,64 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='new.css')}}">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Raleway:500,800" rel="stylesheet">
+<link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+
+<nav class="w3-bar w3-black">
+	<a href="/home/" class="w3-button w3-bar-item">Home</a>
+	<a href="/others/" class="w3-button w3-bar-item">Other couples</a>
+	<a href="/mood/" class="w3-button w3-bar-item">Mood</a>
+	<a href="/logout/" style="float: right" class="w3-button w3-bar-item">Logout</a>
+	<a href="/breakup/" class="w3-button w3-bar-item">Break Up</a>
+  </nav>
+  
+<div class="best-plan">
+<div class="container">
+					<div class="best-plan__head">
+						<div class="row">
+							<div class="col-md-12">
+								<h3 class="best-plan__title"></h3>								
+							</div>
+						</div>
+					</div>
+					<div class="b_plan_body" style="margin-left:30%;width:100%" >					
+						<div class="row" >
+	
+							<div class="col-md-4 col-sm-4" >
+								<!-- price plans item begin -->
+								<div class="b-price-plan" >
+									<div class="b-price-plan__item b-price-plan__head" >
+										<h3>Lover</h3>
+									</div>
+									<div class="b-price-plan__item b-price-plan__cost">											
+										<div class="cost-title">{{detail[1]}}<span>{{detail[2]}}</span></div>
+									</div>
+									<ul class="p_plan_list">
+										<li><em color="black">Mobile-->&nbsp;&nbsp;</em> {{detail[3]}}</li>
+										<li><em color="black">Email-->&nbsp;&nbsp;</em> {{detail[4]}}</li>										
+										<li><em color="black">Age-->&nbsp;&nbsp;</em> {{detail[5]}}</li>
+										<li><em color="black">Gender-->&nbsp;&nbsp;</em> {{detail[6]}}</li>
+										<li><em color="black">Bio-->&nbsp;&nbsp;</em> {{detail[7]}}</li>
+									</ul>								
+									<div class="b-price-plan__item price_foot">																			
+										<a href="/confirm_breakup/" class="btn btn-warning price_btn">
+											<span>Breakup</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
+										</a>
+									</div>
+								</div>
+								<!-- price plans item end -->								
+							</div>
+						</div>	
+						<div style="display:none;">
+				<form action="/confirm_breakup/" method="GET"><input type="text" name="love">{{detail[0]}}</form>
+            </div>
+            
+					</div>
+				</div>
+				</div>
