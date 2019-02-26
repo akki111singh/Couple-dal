@@ -16,7 +16,7 @@ A simple web app with flask as framework in python, sql as database.
 1. Clone this repo to your local machine.
 2. Install required pacakages as described above.
 3. run command 'python main.py'
-4. open your browser with url as 'http://127.0.0.1:5000/'
+4. open localhost in your browser (default port is 5000) or just enter url as 'http://127.0.0.1:5000/'
 
 ### How to Contribute:
 **We would like to improve UI of this webapp. If you're interested in contributing then follow these steps:**
