@@ -28,4 +28,4 @@ A simple web app with flask as framework in python, sql as database.
 * Start contributing and make a pull request to apply these changes.
 
 
-# You can report any other issues also.
+###### You can report any other issues also.
